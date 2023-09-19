@@ -200,7 +200,7 @@ ul.CTAs a {
         <form action = "<?php echo base_url('admin/aksi_ubah_guru')?>"
               encytype="multipart/form-data"
               method="post" class="row">
-              <input name="id_siswa" type="hidden" value="<?php echo $data_guru->id_guru?>">
+              <input name="id_guru" type="hidden" value="<?php echo $data_guru->id_guru?>">
             <div class="mb-3 col-6">
                 <label for="nama" class="form-label">Nama Guru</label>
                 <input type="text" class="form-control" id="nama" name="nama" value="<?php echo $data_guru->nama_guru?>">

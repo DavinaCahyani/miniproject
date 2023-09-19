@@ -214,7 +214,7 @@ ul.CTAs a {
                         <td><?php echo $row->nik ?></td>
                         <td><?php echo $row->gender ?></td>
                         <td class="text-center">
-                            <a href="<?php echo base_url('admin/tambahguru/').$row->id_guru?>" class="btn btn-sm btn-primary">Tambah</a>
+                            
                             <a href="<?php echo base_url('admin/ubah_guru/').$row->id_guru?>" class="btn btn-sm btn-primary">Ubah</a>
                             <button onClick="hapus(<?php echo $row->id_guru?>)" class="btn btn-sm btn-danger">Hapus</button>
                         </td>
@@ -222,6 +222,9 @@ ul.CTAs a {
               <?php endforeach ?>
             </tbody>
         </table>
+        <div class="text-center">
+    <a href="<?php echo base_url('admin/tambahguru')?>" class="btn btn-success">Tambah Guru</a>
+</div>
     </div>
     <script>
         function hapus(id) {
