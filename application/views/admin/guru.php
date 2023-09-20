@@ -205,7 +205,6 @@ ul.CTAs a {
                     <th class="text-center">Aksi</th>
                 </tr>
             </thead>
-
             <tbody class="table-group-divider">
               <?php $no=0;foreach($guru as $row): $no++ ?>
                     <tr>

@@ -133,6 +133,7 @@ class admin extends CI_Controller
        $this->m_model->delete('guru', 'id_guru', $id);
         redirect(base_url('admin/guru'));
     }
+    
 
 }
 ?>
