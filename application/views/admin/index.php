@@ -187,43 +187,45 @@ ul.CTAs a {
                         </li>
                         <li>
                             <a href="<?php echo base_url('admin/guru')?>">Data Guru</a>
-                        </li>
-                        <li>
-                            <a href="<?php echo base_url('auth')?>">Logout</a>
-                        </li>
+                        </li>  
                     </ul>
+                    <li>
+                      <a href="<?php echo base_url('auth')?>">Logout</a>
+                 </li>
                 </li>
-        </nav>
 
+               
+        </nav>
+        
         <!-- Page Content  -->
         <div id="content">
         <div class="card">
-  <h2 class="card-header">Jumlah Kelas</h2>
-  <div class="card-body">
+  <h2 class="card-header bg-primary text-white">Jumlah Kelas</h2>
+  <div class="card-body bg-primary text-white">
     <h2 class="card-text"><?php echo $kelas;?>
 </h2>
   </div>
 </div>
 <br>
         <div class="card">
-  <h2 class="card-header">Jumlah Siswa</h2>
-  <div class="card-body">
+  <h2 class="card-header bg-primary text-white">Jumlah Siswa</h2>
+  <div class="card-body bg-primary text-white">
     <h2 class="card-text"><?php echo $siswa;?>
 </h2>
   </div>
 </div>
 <br>
         <div class="card">
-  <h2 class="card-header">Jumlah Mapel</h2>
-  <div class="card-body">
+  <h2 class="card-header bg-primary text-white">Jumlah Mapel</h2>
+  <div class="card-body bg-primary text-white">
     <h2 class="card-text"><?php echo $mapel;?>
 </h2>
   </div>
 </div>
 <br>
         <div class="card">
-  <h2 class="card-header">Jumlah Guru</h2>
-  <div class="card-body">
+  <h2 class="card-header bg-primary text-white">Jumlah Guru</h2>
+  <div class="card-body bg-primary text-white">
     <h2 class="card-text"><?php echo $siswa;?>
 </h2>
   </div>

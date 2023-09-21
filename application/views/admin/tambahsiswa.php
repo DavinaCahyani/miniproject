@@ -187,6 +187,9 @@ ul.CTAs a {
                         <li>
                             <a href="<?php echo base_url('admin/datasiswa')?>">Data Siswa</a>
                         </li>
+                        <li>
+                      <a href="<?php echo base_url('auth')?>">Logout</a>
+                 </li>
                     </ul>
                 </li>
                 </nav>

@@ -191,6 +191,9 @@ ul.CTAs a {
                             <a href="<?php echo base_url('admin/guru')?>">Data Guru</a>
                         </li>
                     </ul>
+                    <li>
+                      <a href="<?php echo base_url('auth')?>">Logout</a>
+                 </li>
                 </li>
                 </nav>
                 <!-- content -->
