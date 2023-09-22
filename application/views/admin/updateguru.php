@@ -198,7 +198,7 @@ ul.CTAs a {
                 </nav>
                 <!-- content -->
                 <div class="card w-100 m-auto p-3">
-        <h3 class="text-center">Update</h3>
+        <h3 class="text-center">Update Guru</h3>
         <?php foreach($guru as $data_guru): ?>
         <form action = "<?php echo base_url('admin/aksi_ubah_guru')?>"
               encytype="multipart/form-data"
@@ -222,8 +222,9 @@ ul.CTAs a {
                     <option value="Perempuan">Perempuan</option>
                 </select>
             </div>
+            
             <div class="mb-3 col-12">
-                    <button type="submit" class="btn btn-primary">Update</button>
+                    <button type="submit" class="btn btn-primary">Update </button>
                 </div>
         </form>
         <?php endforeach ?>

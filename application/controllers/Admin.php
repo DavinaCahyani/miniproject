@@ -63,6 +63,8 @@ class admin extends CI_Controller
             'nama_guru' => $this->input->post('nama'),
             'nik' => $this->input->post('nik'),
             'gender' => $this->input->post('gender'),
+            'mapel'=> $this->input->post('id_mapel'),
+
         ];
         $this->m_model->tambah_data('guru', $data);
         redirect(base_url('admin/guru'));
@@ -95,6 +97,8 @@ class admin extends CI_Controller
             'nama_guru'=> $this->input->post('nama'),
             'nik'=> $this->input->post('nik'),
             'gender'=> $this->input->post('gender'),
+            'mapel'=> $this->input->post('id_mapel'),
+
         );
         $eksekusi=$this->m_model->ubah_data
         ('guru',$data,array('id_guru'=>$this->input->post('id_guru')));
@@ -119,6 +123,7 @@ class admin extends CI_Controller
     public function ubah_guru($id) 
     {
         $data['guru']=$this->m_model->get_by_id('guru', 'id_guru', $id)->result();
+        $data['mapel']=$this->m_model->get_data('mapel')->result();
         $this->load->view('admin/updateguru', $data);
     }
     

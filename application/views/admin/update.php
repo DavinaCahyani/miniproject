@@ -195,7 +195,7 @@ ul.CTAs a {
                 </nav>
                 <!-- content -->
                 <div class="card w-100 m-auto p-3">
-        <h3 class="text-center">Update</h3>
+        <h3 class="text-center">Update Siswa</h3>
         <?php foreach($siswa as $data_siswa): ?>
         <form action = "<?php echo base_url('admin/aksi_ubah_siswa')?>"
               encytype="multipart/form-data"

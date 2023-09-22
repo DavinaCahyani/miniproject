@@ -226,7 +226,7 @@ ul.CTAs a {
         <div class="card">
   <h2 class="card-header bg-primary text-white">Jumlah Guru</h2>
   <div class="card-body bg-primary text-white">
-    <h2 class="card-text"><?php echo $siswa;?>
+    <h2 class="card-text"><?php echo $guru;?>
 </h2>
   </div>
 </div>

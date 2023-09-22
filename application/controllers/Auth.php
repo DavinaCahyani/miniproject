@@ -56,28 +56,32 @@ public function aksi_register()
     $this->load->library('form_validation');
     
     // Validasi input form
+    $this->form_validation->set_rules('username', 'Username', 'required|min_length[3]|is_unique[admin.username]');
     $this->form_validation->set_rules('email', 'Email', 'required|valid_email');
-    $this->form_validation->set_rules('password', 'Password', 'required|min_length[8]'); // Menambahkan aturan min_length[8]
+    $this->form_validation->set_rules('password', 'Password', 'required|min_length[8]');
 
     if ($this->form_validation->run() == FALSE) {
-        // Jika validasi gagal, tampilkan pesan error atau form registrasi lagi
-        //  $this->load->view('registrasi_form');
+        // If validation fails, you can load the registration form again with error messages
+        $this->load->view('auth/register');
     } else {
-        // Jika validasi sukses, simpan data ke database
+        // If validation is successful, save data to the database
+        $username = $this->input->post('username', true);
         $email = $this->input->post('email', true);
-        $password = md5($this->input->post('password', true)); // Enkripsi password dengan MD5
+        $password = md5($this->input->post('password', true));
 
         $data = [
+            'username' => $username,
             'email' => $email,
-            'password' => $password, // Simpan password yang telah dienkripsi
+            'password' => $password,
         ];
 
         $this->m_model->tambah_data('admin', $data);
 
-        // Redirect ke halaman setelah registrasi
+        // Redirect to the login page or another appropriate location
         redirect(base_url('auth'));
     }
 }
+
 function logout() {
     $this->session->sess_destroy(); // Menggunakan sess_destroy() untuk mengakhiri sesi
     redirect(base_url('auth'));

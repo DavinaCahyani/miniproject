@@ -8,6 +8,9 @@
     <title>Document</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@10.3.4/dist/sweetalert2.min.css">
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.3.4/dist/sweetalert2.min.js"></script>
+
 </head>
 <style>
     /*
@@ -215,6 +218,7 @@ ul.CTAs a {
                         <td><?php echo $row->nama_guru?></td>
                         <td><?php echo $row->nik ?></td>
                         <td><?php echo $row->gender ?></td>
+                        
                         <td class="text-center">
                             
                             <a href="<?php echo base_url('admin/ubah_guru/').$row->id_guru?>" class="btn btn-sm btn-primary">Ubah</a>
@@ -225,16 +229,34 @@ ul.CTAs a {
             </tbody>
         </table>
         <div class="text-center">
-    <a href="<?php echo base_url('admin/tambahguru')?>" class="btn btn-success">Tambah Guru</a>
+    <a href="<?php echo base_url('admin/tambahguru')?>" class="btn btn-primary">Tambah Guru</a>
 </div>
     </div>
-    <script>
-        function hapus(id) {
-            var yes = confirm('Yakin dihapus?')
-            if (yes == true) {
-                window.location.href="<?php echo base_url('admin/hapus_guru/')?>" + id;
+    <<script>
+    function hapus(id) {
+        swal.fire({
+            title: 'Yakin untuk menghapus data ini?',
+            text: "Data ini akan terhapus permanen",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            cancelButtonText: 'Batal',
+            confirmButtonText: 'Ya Hapus'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Berhasil Dihapus',
+                    showConfirmButton: false,
+                    timer: 1500,
+
+                }).then(function() {
+                    window.location.href = "<?php echo base_url('admin/hapus_guru/')?>" + id;
+                });
             }
-        }
-    </script>
+        });
+    }
+</script>
 </body>
 </html>
