@@ -232,7 +232,7 @@ ul.CTAs a {
     <a href="<?php echo base_url('admin/tambahguru')?>" class="btn btn-primary">Tambah Guru</a>
 </div>
     </div>
-    <<script>
+    <script>
     function hapus(id) {
         swal.fire({
             title: 'Yakin untuk menghapus data ini?',

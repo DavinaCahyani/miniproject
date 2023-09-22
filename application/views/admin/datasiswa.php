@@ -234,7 +234,7 @@ ul.CTAs a {
     <a href="<?php echo base_url('admin/tambahsiswa')?>" class="btn btn-primary">Tambah Siswa</a>
 </div>
     </div>
-    <<script>
+    <script>
     function hapus(id) {
         swal.fire({
             title: 'Yakin untuk menghapus data ini?',
