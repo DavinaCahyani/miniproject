@@ -32,55 +32,64 @@ class auth extends CI_Controller {
     $result = $query->row_array();
 
     if (!empty($result) && md5($password) === $result['password']) {
-        $data = [
-            'logged_in' => TRUE,
-            'email' => $result['email'],
-            'username' => $result['username'],
-            'role' => $result['role'],
-            'id' => $result['id'],
-        ];
-        $this->session->set_userdata($data);
-        if  
-           ( redirect(base_url()."admin"));
-        else {
-            redirect(base_url()."auth");
+        // Periksa apakah pengguna memiliki peran (role) 'admin'
+        if ($result['role'] === 'admin') {
+            $data = [
+                'logged_in' => TRUE,
+                'email' => $result['email'],
+                'username' => $result['username'],
+                'role' => $result['role'],
+                'id' => $result['id'],
+            ];
+            $this->session->set_userdata($data);
+            redirect(base_url()."admin");
+        } else {
+            // Tampilkan pesan kesalahan jika pengguna bukan admin
+            $this->session->set_flashdata('error', 'Anda tidak memiliki izin untuk login.');
+            redirect(base_url().'auth');
         }
     } else {
-        // Tampilkan pesan kesalahan kepada pengguna
+        // Tampilkan pesan kesalahan kepada pengguna jika login gagal
         $this->session->set_flashdata('error', 'Email atau kata sandi salah.');
         redirect(base_url().'auth');
     }
 }
+
 public function aksi_register()
 {
     $this->load->library('form_validation');
     
-    // Validasi input form
+    // Formulir masukan validasi
     $this->form_validation->set_rules('username', 'Username', 'required|min_length[3]|is_unique[admin.username]');
     $this->form_validation->set_rules('email', 'Email', 'required|valid_email');
     $this->form_validation->set_rules('password', 'Password', 'required|min_length[8]');
 
     if ($this->form_validation->run() == FALSE) {
-        // If validation fails, you can load the registration form again with error messages
+      // Jika validasi gagal, maka akan kembali formulir pendaftaran
         $this->load->view('auth/register');
     } else {
-        // If validation is successful, save data to the database
+        // Jika validasi berhasil, simpan data ke database
         $username = $this->input->post('username', true);
         $email = $this->input->post('email', true);
         $password = md5($this->input->post('password', true));
+
+        // Tetapkan peran menjadi 'admin' di sini untuk pendaftaran admin
+        $role = 'admin';
 
         $data = [
             'username' => $username,
             'email' => $email,
             'password' => $password,
+            'role' => $role, // Tetapkan peran sebagai 'admin' di sini
         ];
 
         $this->m_model->tambah_data('admin', $data);
 
-        // Redirect to the login page or another appropriate location
+      // Redirect ke halaman login atau lokasi lain yang sesuai
         redirect(base_url('auth'));
     }
 }
+
 
 function logout() {
     $this->session->sess_destroy(); // Menggunakan sess_destroy() untuk mengakhiri sesi

@@ -192,13 +192,18 @@ ul.CTAs a {
                         </li>
                         <li>
                             <a href="<?php echo base_url('admin/guru')?>">Data Guru</a>
-                        </li>
+                        </li>  
                     </ul>
                     <li>
-                      <a href="<?php echo base_url('auth')?>">Logout</a>
-                 </li>
+    <!-- Replaced "Logout" text with a small and transparent image -->
+    <a href="<?php echo base_url('auth')?>">
+        <img src="https://pic.onlinewebfonts.com/thumbnails/icons_71494.svg" alt="Logout" style="width: 20px; opacity: 0.5;" />Logout
+    </a>
+</li>
+
                 </li>
-                </nav>
+            </ul>    
+        </nav>
                 <!-- content -->
         <table class="table table-striped table-hover">
             <thead>
