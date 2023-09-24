@@ -1,176 +1,129 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Dashboard</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
-     integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <style>
+    /* DEMO STYLE */
 
-</head>
-<style>
-    /*
-    DEMO STYLE
-*/
+    @import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
 
-@import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
-body {
-    font-family: 'Poppins', sans-serif;
-    background: #fafafa;
-}
+    body {
+        font-family: 'Poppins', sans-serif;
+        background: #fafafa;
+        margin: 0;
+        padding: 0;
+    }
 
-p {
-    font-family: 'Poppins', sans-serif;
-    font-size: 1.1em;
-    font-weight: 300;
-    line-height: 1.7em;
-    color: #999;
-}
+    .navbar {
+        background: #7386D5;
+        padding: 15px 0;
+    }
 
-a,
-a:hover,
-a:focus {
-    color: inherit;
-    text-decoration: none;
-    transition: all 0.3s;
-}
+    .navbar-brand {
+        color: #fff;
+        font-size: 24px;
+        font-weight: bold;
+    }
 
-.navbar {
-    padding: 15px 10px;
-    background: #fff;
-    border: none;
-    border-radius: 0;
-    margin-bottom: 40px;
-    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
-}
+    .navbar-toggler-icon {
+        background-color: #fff;
+    }
 
-.navbar-btn {
-    box-shadow: none;
-    outline: none !important;
-    border: none;
-}
+    .navbar-toggler {
+        border: none;
+    }
 
-.line {
-    width: 100%;
-    height: 1px;
-    border-bottom: 1px dashed #ddd;
-    margin: 40px 0;
-}
+    .navbar-nav .nav-item .nav-link {
+        color: #fff;
+        transition: all 0.3s;
+    }
 
-/* ---------------------------------------------------
-    SIDEBAR STYLE
------------------------------------------------------ */
+    .navbar-nav .nav-item .nav-link:hover {
+        color: #6d7fcc;
+    }
 
-.wrapper {
-    display: flex;
-    width: 100%;
-    align-items: stretch;
-}
+    /* SIDEBAR STYLE */
 
-#sidebar {
-    min-width: 250px;
-    max-width: 250px;
-    background: #7386D5;
-    color: #fff;
-    transition: all 0.3s;
-}
+    .wrapper {
+        display: flex;
+    }
 
-#sidebar.active {
-    margin-left: -250px;
-}
-
-#sidebar .sidebar-header {
-    padding: 20px;
-    background: #6d7fcc;
-}
-
-#sidebar ul.components {
-    padding: 20px 0;
-    border-bottom: 1px solid #47748b;
-}
-
-#sidebar ul p {
-    color: #fff;
-    padding: 10px;
-}
-
-#sidebar ul li a {
-    padding: 10px;
-    font-size: 1.1em;
-    display: block;
-}
-
-#sidebar ul li a:hover {
-    color: #7386D5;
-    background: #fff;
-}
-
-#sidebar ul li.active>a,
-a[aria-expanded="true"] {
-    color: #fff;
-    background: #6d7fcc;
-}
-
-a[data-toggle="collapse"] {
-    position: relative;
-}
-
-.dropdown-toggle::after {
-    display: block;
-    position: absolute;
-    top: 50%;
-    right: 20px;
-    transform: translateY(-50%);
-}
-
-ul ul a {
-    font-size: 0.9em !important;
-    padding-left: 30px !important;
-    background: #6d7fcc;
-}
-
-ul.CTAs {
-    padding: 20px;
-}
-
-ul.CTAs a {
-    text-align: center;
-    font-size: 0.9em !important;
-    display: block;
-    border-radius: 5px;
-    margin-bottom: 5px;
-}
-
-
-/* ---------------------------------------------------
-    CONTENT STYLE
------------------------------------------------------ */
-
-#content {
-    width: 20%;
-    padding: 20px;
-    min-height: 100vh;
-}
-
-/* ---------------------------------------------------
-    MEDIAQUERIES
------------------------------------------------------ */
-
-@media (max-width: 768px) {
     #sidebar {
+        min-width: 250px;
+        max-width: 250px;
+        background: #7386D5;
+        color: #fff;
+        transition: all 0.3s;
+        height: 800px;
+    }
+
+    #sidebar.active {
         margin-left: -250px;
     }
-    #sidebar.active {
-        margin-left: 0;
+
+    #sidebar .sidebar-header {
+        padding: 20px;
+        background: #6d7fcc;
     }
-    #sidebarCollapse span {
-        display: none;
+
+    #sidebar ul.components {
+        padding: 20px 0;
+        border-bottom: 1px solid #47748b;
     }
-}
-</style>
+
+    #sidebar ul p {
+        color: #fff;
+        padding: 10px;
+    }
+
+    #sidebar ul li a {
+        padding: 10px;
+        font-size: 1.1em;
+        display: block;
+        color: #fff;
+    }
+
+    #sidebar ul li a:hover {
+        background: #6d7fcc;
+    }
+
+    #sidebar ul li.active>a,
+    a[aria-expanded="true"] {
+        background: #6d7fcc;
+
+    }
+
+    /* CONTENT STYLE */
+
+    #content {
+        flex-grow: 1;
+        padding: 20px;
+    }
+
+    .card {
+        margin-bottom: 20px;
+    }
+
+    .card-header {
+        background: #6d7fcc;
+        color: #fff;
+    }
+
+    .card-body {
+        background: #7386D5;
+        color: #fff;
+    }
+    </style>
+</head>
+
 <body>
-<div class="wrapper">
-        <!-- Sidebar  -->
+    <div class="wrapper">
+        <!-- Sidebar -->
         <nav id="sidebar">
             <div class="sidebar-header">
                 <h3>Dashboard</h3>
@@ -187,56 +140,72 @@ ul.CTAs a {
                         </li>
                         <li>
                             <a href="<?php echo base_url('admin/guru')?>">Data Guru</a>
-                        </li>  
+                        </li>
                     </ul>
-                    <li>
-    <!-- Replaced "Logout" text with a small and transparent image -->
-    <a href="<?php echo base_url('auth')?>">
-        <img src="https://pic.onlinewebfonts.com/thumbnails/icons_71494.svg" alt="Logout" style="width: 20px; opacity: 0.5;" />Logout
-    </a>
-</li>
-
                 </li>
-            </ul>    
+                <li>
+                    <!-- Replaced "Logout" text with a small and transparent image -->
+                    <a href="<?php echo base_url('auth')?>">
+                        <img src="https://pic.onlinewebfonts.com/thumbnails/icons_71494.svg" alt="Logout"
+                            style="width: 20px; opacity: 0.5;" />Logout
+                    </a>
+                </li>
+            </ul>
         </nav>
-        
-        <!-- Page Content  -->
+
+        <!-- Page Content -->
         <div id="content">
-        <div class="card">
-  <h2 class="card-header bg-primary text-white">Jumlah Kelas</h2>
-  <div class="card-body bg-primary text-white">
-    <h2 class="card-text"><?php echo $kelas;?>
-</h2>
-  </div>
-</div>
-<br>
-        <div class="card">
-  <h2 class="card-header bg-primary text-white">Jumlah Siswa</h2>
-  <div class="card-body bg-primary text-white">
-    <h2 class="card-text"><?php echo $siswa;?>
-</h2>
-  </div>
-</div>
-<br>
-        <div class="card">
-  <h2 class="card-header bg-primary text-white">Jumlah Mapel</h2>
-  <div class="card-body bg-primary text-white">
-    <h2 class="card-text"><?php echo $mapel;?>
-</h2>
-  </div>
-</div>
-<br>
-        <div class="card">
-  <h2 class="card-header bg-primary text-white">Jumlah Guru</h2>
-  <div class="card-body bg-primary text-white">
-    <h2 class="card-text"><?php echo $guru;?>
-</h2>
-  </div>
-</div>
-</div>
+            <!-- Bootstrap Navbar -->
+            <nav class="navbar navbar-expand-lg navbar-light">
+                <div class="container-fluid">
+                    <p class="navbar-brand">Dashboard Sekolah</p>
                 </div>
             </nav>
+
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="card">
+                        <div class="card-header bg-primary text-white">
+                            Jumlah Kelas
+                        </div>
+                        <div class="card-body bg-primary text-white">
+                            <h2 class="card-text"><?php echo $kelas;?></h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card">
+                        <div class="card-header bg-primary text-white">
+                            Jumlah Siswa
+                        </div>
+                        <div class="card-body bg-primary text-white">
+                            <h2 class="card-text"><?php echo $siswa;?></h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card">
+                        <div class="card-header bg-primary text-white">
+                            Jumlah Mapel
+                        </div>
+                        <div class="card-body bg-primary text-white">
+                            <h2 class="card-text"><?php echo $mapel;?></h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card">
+                        <div class="card-header bg-primary text-white">
+                            Jumlah Guru
+                        </div>
+                        <div class="card-body bg-primary text-white">
+                            <h2 class="card-text"><?php echo $guru;?></h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </body>
+
 </html>

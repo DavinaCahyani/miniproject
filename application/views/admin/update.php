@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,71 +9,58 @@
         integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
 </head>
 <style>
-    /*
-    DEMO STYLE
-*/
+/* DEMO STYLE */
 
 @import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
+
 body {
     font-family: 'Poppins', sans-serif;
     background: #fafafa;
-}
-
-p {
-    font-family: 'Poppins', sans-serif;
-    font-size: 1.1em;
-    font-weight: 300;
-    line-height: 1.7em;
-    color: #999;
-}
-
-a,
-a:hover,
-a:focus {
-    color: inherit;
-    text-decoration: none;
-    transition: all 0.3s;
+    margin: 0;
+    padding: 0;
 }
 
 .navbar {
-    padding: 15px 10px;
-    background: #fff;
+    background: #7386D5;
+    padding: 15px 0;
+}
+
+.navbar-brand {
+    color: #fff;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.navbar-toggler-icon {
+    background-color: #fff;
+}
+
+.navbar-toggler {
     border: none;
-    border-radius: 0;
-    margin-bottom: 40px;
-    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
 }
 
-.navbar-btn {
-    box-shadow: none;
-    outline: none !important;
-    border: none;
+.navbar-nav .nav-item .nav-link {
+    color: #fff;
+    transition: all 0.3s;
 }
 
-.line {
-    width: 100%;
-    height: 1px;
-    border-bottom: 1px dashed #ddd;
-    margin: 40px 0;
+.navbar-nav .nav-item .nav-link:hover {
+    color: #6d7fcc;
 }
 
-/* ---------------------------------------------------
-    SIDEBAR STYLE
------------------------------------------------------ */
+/* SIDEBAR STYLE */
 
 .wrapper {
     display: flex;
-    width: 100%;
-    align-items: stretch;
 }
 
 #sidebar {
     min-width: 250px;
     max-width: 250px;
-    height: 800px;
     background: #7386D5;
     color: #fff;
     transition: all 0.3s;
+    height: 800px;
 }
 
 #sidebar.active {
@@ -100,78 +86,44 @@ a:focus {
     padding: 10px;
     font-size: 1.1em;
     display: block;
+    color: #fff;
 }
 
 #sidebar ul li a:hover {
-    color: #7386D5;
-    background: #fff;
+    background: #6d7fcc;
 }
 
 #sidebar ul li.active>a,
 a[aria-expanded="true"] {
-    color: #fff;
     background: #6d7fcc;
+
 }
 
-a[data-toggle="collapse"] {
-    position: relative;
-}
-
-.dropdown-toggle::after {
-    display: block;
-    position: absolute;
-    top: 50%;
-    right: 20px;
-    transform: translateY(-50%);
-}
-
-ul ul a {
-    font-size: 0.9em !important;
-    padding-left: 30px !important;
-    background: #6d7fcc;
-}
-
-ul.CTAs {
-    padding: 20px;
-}
-
-ul.CTAs a {
-    text-align: center;
-    font-size: 0.9em !important;
-    display: block;
-    border-radius: 5px;
-    margin-bottom: 5px;
-}
-
-
-/* ---------------------------------------------------
-    CONTENT STYLE
------------------------------------------------------ */
+/* CONTENT STYLE */
 
 #content {
-    width: 20%;
+    flex-grow: 1;
     padding: 20px;
-    min-height: 100vh;
 }
 
-/* ---------------------------------------------------
-    MEDIAQUERIES
------------------------------------------------------ */
+.card {
+    margin-bottom: 20px;
+}
 
-@media (max-width: 768px) {
-    #sidebar {
-        margin-left: -250px;
-    }
-    #sidebar.active {
-        margin-left: 0;
-    }
-    #sidebarCollapse span {
-        display: none;
-    }
+.card-header {
+    background: #6d7fcc;
+    color: #fff;
+}
+
+.card-body {
+    background: #7386D5;
+    color: #fff;
 }
 </style>
+</head>
+
 <body>
-<div class="wrapper">
+    <div class="wrapper">
         <!-- Sidebar  -->
         <nav id="sidebar">
             <div class="sidebar-header">
@@ -187,56 +139,73 @@ ul.CTAs a {
                         <li>
                             <a href="<?php echo base_url('admin/datasiswa')?>">Data Siswa</a>
                         </li>
+                        <li>
+                            <a href="<?php echo base_url('admin/guru')?>">Data Guru</a>
+                        </li>
                     </ul>
-                    <li>
-                      <a href="<?php echo base_url('auth')?>">Logout</a>
-                 </li>
+                <li>
+                    <!-- Replaced "Logout" text with a small and transparent image -->
+                    <a href="<?php echo base_url('auth')?>">
+                        <img src="https://pic.onlinewebfonts.com/thumbnails/icons_71494.svg" alt="Logout"
+                            style="width: 20px; opacity: 0.5;" />Logout
+                    </a>
                 </li>
-                </nav>
-                <!-- content -->
-                <div class="card w-100 m-auto p-3">
-        <h3 class="text-center">Update Siswa</h3>
-        <?php foreach($siswa as $data_siswa): ?>
-        <form action = "<?php echo base_url('admin/aksi_ubah_siswa')?>"
-              encytype="multipart/form-data"
-              method="post" class="row">
-              <input name="id_siswa" type="hidden" value="<?php echo $data_siswa->id_siswa?>">
-            <div class="mb-3 col-6">
-                <label for="nama" class="form-label">Nama Siswa</label>
-                <input type="text" class="form-control" id="nama" name="nama" value="<?php echo $data_siswa->nama_siswa?>">
-            </div>
-            <div class="mb-3 col-6">
-                <label for="nama" class="form-label">NISN</label>
-                <input type="text" class="form-control" id="nisn" name="nisn" value="<?php echo $data_siswa->nisn?>">
-            </div>
-            <div class="mb-3 col-6">
-                <label for="gender" class="form-label">Gender</label>
-                <select name="gender" id="gender" class="form-select">
-                    <option selected value="<?php echo $data_siswa->gender ?>">
-                    <?php echo $data_siswa->gender ?>
-                    </option>
-                    <option value="Laki-Laki">Laki-Laki</option>
-                    <option value="Perempuan">Perempuan</option>
-                </select>
-            </div>
-            <div class="mb-3 col-6">
-                <label for="kelas" class="form-label">Kelas</label>
-                <select name="id_kelas" id="kelas" class="form-select">
-                    <option selected value="<?php echo $data_siswa->id_kelas ?>">
-                <?php echo tampil_full_kelas_byid($data_siswa->id_kelas)?>
-                <?php foreach ($kelas as $row):?>
-                    <option value="<?php echo $row->id ?>">
-                    <?php echo $row->tingkat_kelas.' '.$row->jurusan_kelas; ?> </option>
-                    <?php endforeach; ?>
-                </option>
-               
-                </select>
-            </div>
-            <div class="mb-3 col-12">
-                    <button type="submit" class="btn btn-primary">Update</button>
+
+                </li>
+            </ul>
+        </nav>
+        <!-- content -->
+        <div id="content">
+            <nav class="navbar navbar-expand-lg navbar-light">
+                <div class="container-fluid">
+                    <p class="navbar-brand">Update Siswa</p>
                 </div>
-        </form>
-        <?php endforeach ?>
-    </div>
+            </nav>
+            <div class="card w-100 m-auto p-3">
+                <h3 class="text-center">Update Siswa</h3>
+                <?php foreach($siswa as $data_siswa): ?>
+                <form action="<?php echo base_url('admin/aksi_ubah_siswa')?>" encytype="multipart/form-data"
+                    method="post" class="row">
+                    <input name="id_siswa" type="hidden" value="<?php echo $data_siswa->id_siswa?>">
+                    <div class="mb-3 col-6">
+                        <label for="nama" class="form-label">Nama Siswa</label>
+                        <input type="text" class="form-control" id="nama" name="nama"
+                            value="<?php echo $data_siswa->nama_siswa?>">
+                    </div>
+                    <div class="mb-3 col-6">
+                        <label for="nama" class="form-label">NISN</label>
+                        <input type="text" class="form-control" id="nisn" name="nisn"
+                            value="<?php echo $data_siswa->nisn?>">
+                    </div>
+                    <div class="mb-3 col-6">
+                        <label for="gender" class="form-label">Gender</label>
+                        <select name="gender" id="gender" class="form-select">
+                            <option selected value="<?php echo $data_siswa->gender ?>">
+                                <?php echo $data_siswa->gender ?>
+                            </option>
+                            <option value="Laki-Laki">Laki-Laki</option>
+                            <option value="Perempuan">Perempuan</option>
+                        </select>
+                    </div>
+                    <div class="mb-3 col-6">
+                        <label for="kelas" class="form-label">Kelas</label>
+                        <select name="id_kelas" id="kelas" class="form-select">
+                            <option selected value="<?php echo $data_siswa->id_kelas ?>">
+                                <?php echo tampil_full_kelas_byid($data_siswa->id_kelas)?>
+                                <?php foreach ($kelas as $row):?>
+                            <option value="<?php echo $row->id ?>">
+                                <?php echo $row->tingkat_kelas.' '.$row->jurusan_kelas; ?> </option>
+                            <?php endforeach; ?>
+                            </option>
+
+                        </select>
+                    </div>
+                    <div class="mb-3 col-12">
+                        <button type="submit" class="btn btn-primary">Update</button>
+                    </div>
+                </form>
+                <?php endforeach ?>
+            </div>
 </body>
+
 </html>
