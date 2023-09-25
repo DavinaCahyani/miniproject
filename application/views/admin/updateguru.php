@@ -22,7 +22,18 @@ body {
 
 .navbar {
     background: #7386D5;
-    padding: 15px 0;
+    padding: 10px 30px;
+    /* Tambahkan padding atas dan kiri kanan */
+    position: fixed;
+    /* Tetapkan posisi navbar */
+    width: 100%;
+    /* Navbar mencakup seluruh lebar layar */
+    top: 0;
+    /* Navbar di atas layar */
+    z-index: 999;
+    /* Agar navbar tetap di atas elemen lain */
+    padding-right: 10px;
+
 }
 
 .navbar-brand {
@@ -39,14 +50,14 @@ body {
     border: none;
 }
 
-.navbar-nav .nav-item .nav-link {
-    color: #fff;
-    transition: all 0.3s;
-}
+/* .navbar-nav .nav-item .nav-link {
+        color: #fff;
+        transition: all 0.3s;
+    } */
 
-.navbar-nav .nav-item .nav-link:hover {
-    color: #6d7fcc;
-}
+/* .navbar-nav .nav-item .nav-link:hover {
+        color: #6d7fcc;
+    } */
 
 /* SIDEBAR STYLE */
 
@@ -60,7 +71,7 @@ body {
     background: #7386D5;
     color: #fff;
     transition: all 0.3s;
-    height: 800px;
+    /* height: 800px; */
 }
 
 #sidebar.active {
@@ -75,6 +86,7 @@ body {
 #sidebar ul.components {
     padding: 20px 0;
     border-bottom: 1px solid #47748b;
+    height: 675px;
 }
 
 #sidebar ul p {
@@ -98,6 +110,28 @@ a[aria-expanded="true"] {
     background: #6d7fcc;
 
 }
+
+/* Logout style */
+.logout {
+    padding: 5px;
+    /* text-align: center; */
+}
+
+.logout a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.logout img {
+    width: 20px;
+    opacity: 0.5;
+    margin-right: 10px;
+}
+
+.logout a:hover {
+    color: #6d7fcc;
+}
+
 
 /* CONTENT STYLE */
 
@@ -161,6 +195,9 @@ a[aria-expanded="true"] {
                     <p class="navbar-brand">Update Guru</p>
                 </div>
             </nav>
+            <br>
+            <br>
+            <br>
             <div class="card w-100 m-auto p-3">
                 <h3 class="text-center">Update</h3>
                 <?php foreach($guru as $data_guru): ?>

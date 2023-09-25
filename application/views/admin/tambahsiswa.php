@@ -21,7 +21,18 @@
 
     .navbar {
         background: #7386D5;
-        padding: 15px 0;
+        padding: 10px 30px;
+        /* Tambahkan padding atas dan kiri kanan */
+        position: fixed;
+        /* Tetapkan posisi navbar */
+        width: 100%;
+        /* Navbar mencakup seluruh lebar layar */
+        top: 0;
+        /* Navbar di atas layar */
+        z-index: 999;
+        /* Agar navbar tetap di atas elemen lain */
+        padding-right: 10px;
+
     }
 
     .navbar-brand {
@@ -38,14 +49,14 @@
         border: none;
     }
 
-    .navbar-nav .nav-item .nav-link {
+    /* .navbar-nav .nav-item .nav-link {
         color: #fff;
         transition: all 0.3s;
-    }
+    } */
 
-    .navbar-nav .nav-item .nav-link:hover {
+    /* .navbar-nav .nav-item .nav-link:hover {
         color: #6d7fcc;
-    }
+    } */
 
     /* SIDEBAR STYLE */
 
@@ -59,7 +70,7 @@
         background: #7386D5;
         color: #fff;
         transition: all 0.3s;
-        height: 800px;
+        /* height: 800px; */
     }
 
     #sidebar.active {
@@ -74,6 +85,7 @@
     #sidebar ul.components {
         padding: 20px 0;
         border-bottom: 1px solid #47748b;
+        height: 675px;
     }
 
     #sidebar ul p {
@@ -97,6 +109,28 @@
         background: #6d7fcc;
 
     }
+
+    /* Logout style */
+    .logout {
+        padding: 5px;
+        /* text-align: center; */
+    }
+
+    .logout a {
+        color: #fff;
+        text-decoration: none;
+    }
+
+    .logout img {
+        width: 20px;
+        opacity: 0.5;
+        margin-right: 10px;
+    }
+
+    .logout a:hover {
+        color: #6d7fcc;
+    }
+
 
     /* CONTENT STYLE */
 
@@ -160,6 +194,9 @@
                     <p class="navbar-brand">Tambah Siswa</p>
                 </div>
             </nav>
+            <br>
+            <br>
+            <br>
             <div class="card w-100 m-auto p-3">
                 <h3 class="text-center">Tambah Siswa</h3>
                 <form action="<?php echo base_url('admin/aksi_tambahsiswa')?>" encytype="multipart/form-data"

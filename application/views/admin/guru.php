@@ -24,7 +24,18 @@
 
     .navbar {
         background: #7386D5;
-        padding: 15px 0;
+        padding: 10px 30px;
+        /* Tambahkan padding atas dan kiri kanan */
+        position: fixed;
+        /* Tetapkan posisi navbar */
+        width: 100%;
+        /* Navbar mencakup seluruh lebar layar */
+        top: 0;
+        /* Navbar di atas layar */
+        z-index: 999;
+        /* Agar navbar tetap di atas elemen lain */
+        padding-right: 10px;
+
     }
 
     .navbar-brand {
@@ -62,7 +73,7 @@
         background: #7386D5;
         color: #fff;
         transition: all 0.3s;
-        height: 800px;
+        /* height: 800px; */
     }
 
     #sidebar.active {
@@ -77,6 +88,7 @@
     #sidebar ul.components {
         padding: 20px 0;
         border-bottom: 1px solid #47748b;
+        height: 675px;
     }
 
     #sidebar ul p {
@@ -100,6 +112,28 @@
         background: #6d7fcc;
 
     }
+
+    /* Logout style */
+    .logout {
+        padding: 5px;
+        /* text-align: center; */
+    }
+
+    .logout a {
+        color: #fff;
+        text-decoration: none;
+    }
+
+    .logout img {
+        width: 20px;
+        opacity: 0.5;
+        margin-right: 10px;
+    }
+
+    .logout a:hover {
+        color: #6d7fcc;
+    }
+
 
     /* CONTENT STYLE */
 
@@ -145,16 +179,14 @@
                             <a href="<?php echo base_url('admin/guru')?>">Data Guru</a>
                         </li>
                     </ul>
-                <li>
-                    <!-- Replaced "Logout" text with a small and transparent image -->
-                    <a href="<?php echo base_url('auth')?>">
-                        <img src="https://pic.onlinewebfonts.com/thumbnails/icons_71494.svg" alt="Logout"
-                            style="width: 20px; opacity: 0.5;" />Logout
-                    </a>
-                </li>
-
                 </li>
             </ul>
+            <div class="logout">
+                <a href="<?php echo base_url('auth')?>" style="color: #fff; text-decoration: none;">
+                    <img src="https://media.istockphoto.com/id/1268956056/id/vektor/ikon-vektor-logout-terisolasi-pada-latar-belakang-putih-garis-besar-ikon-logout-garis-tipis.jpg?s=170667a&w=0&k=20&c=UgA9skSIk-m-ENdmH2_2KSaCTPbg1lSCERAvTL3Qosc="
+                        alt="Logout" style="width: 30px; opacity: 0.5; margin-right: 10px;" />Logout
+                </a>
+            </div>
         </nav>
         <!-- content -->
         <div id="content">
@@ -164,6 +196,10 @@
                 </div>
             </nav>
             <!-- content -->
+            <br>
+            <br>
+            <br>
+            <br>
             <table class="table table-striped table-hover">
                 <thead>
                     <tr>
